@@ -1,7 +1,3 @@
-IP="10.0.2.10/24"
-GATEWAY="10.0.2.2"
-ETHERNET_NAME="enp0s3"
-
 while getopts "i:g:e:" opt; do
   case "$opt" in
   i) IP="$OPTARG" ;;

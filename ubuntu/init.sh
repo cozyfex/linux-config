@@ -1,6 +1,6 @@
 HOSTNAME="master01"
-IP="192.168.56.10/24"
-GATEWAY="192.168.56.1"
+IP="10.0.2.10/24"
+GATEWAY="10.0.2.2"
 ETHERNET_NAME="enp0s3"
 
 while getopts "h:i:g:e:" opt; do
