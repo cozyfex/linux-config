@@ -13,29 +13,5 @@ while getopts "h:i:g:e:" opt; do
   esac
 done
 
-echo "Change Hostname"
-hostnamectl set-hostname ${HOSTNAME}
-
-echo "Change IP Configuration"
-cat <<EOT >/etc/netplan/00-installer-config.yaml
-network:
-  version: 2
-  renderer: networkd
-  ethernets:
-    ${ETHERNET_NAME}:
-      dhcp4: no
-      addresses:
-        - ${IP}
-      gateway4: ${GATEWAY}
-      nameservers:
-        addresses: [ 8.8.8.8, 1.1.1.1 ]
-EOT
-
-echo "Change IP Apply"
-netplan apply
-
-echo "================================================"
-hostnamectl
-echo "================================================"
-ip addr show ${ETHERNET_NAME}
-echo "================================================"
+./hostname.sh -h ${HOSTNAME}
+./ip.sh -i ${IP} -g ${GATEWAY} -e ${ETHERNET_NAME}
