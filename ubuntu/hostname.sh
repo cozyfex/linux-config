@@ -8,7 +8,7 @@ while getopts "h:" opt; do
 done
 
 echo "Change Hostname"
-hostnamectl set-hostname ${HOSTNAME}
+sudo hostnamectl set-hostname ${HOSTNAME}
 
 echo "================================================"
 hostnamectl

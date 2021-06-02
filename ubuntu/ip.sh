@@ -8,7 +8,7 @@ while getopts "i:g:e:" opt; do
 done
 
 echo "Change IP Configuration"
-cat <<EOT >/etc/netplan/00-installer-config.yaml
+sudo cat <<EOT >/etc/netplan/00-installer-config.yaml
 network:
   version: 2
   renderer: networkd
@@ -23,7 +23,7 @@ network:
 EOT
 
 echo "Change IP Apply"
-netplan apply
+sudo netplan apply
 
 echo "================================================"
 ip addr show ${ETHERNET_NAME}
